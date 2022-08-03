@@ -1,5 +1,5 @@
 import React from "react";
-import VideoCard from "../Components/VideoDetails";
+import VideoDetails from "../Components/VideoDetails";
 
 const ViewSingleVideo = () => {
   return (

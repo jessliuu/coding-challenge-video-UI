@@ -1,5 +1,7 @@
 import React from "react";
 
-export const ViewLogin = () => {
+const ViewLogin = () => {
   return <div>ViewLogin</div>;
 };
+
+export default ViewLogin;

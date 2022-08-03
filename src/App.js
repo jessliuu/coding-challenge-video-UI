@@ -1,4 +1,4 @@
-import { ViewLogin } from "./Views/ViewLogin";
+import ViewLogin from "./Views/ViewLogin";
 import ViewNoMatch from "./Views/ViewNoMatch";
 import ViewOverview from "./Views/ViewOverview";
 import ViewProfile from "./Views/ViewProfile";
