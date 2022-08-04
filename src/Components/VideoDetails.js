@@ -13,6 +13,12 @@ const VideoDetails = () => {
   const [newCommentText, setNewCommentText] = useState("");
   const charLimit = 300;
   const [comments, setComments] = useState([]);
+  const [showComments, setShowComments] = useState(true);
+
+  const toggleComments = () => {
+    setShowComments(!showComments);
+    console.log(showComments);
+  };
 
   // useEffect(() => {
   //   const savedNotes = JSON.parse(localStorage.getItem("comments"));
@@ -74,29 +80,41 @@ const VideoDetails = () => {
         <source src={video372} type="video/mp4" />
       </video>
 
-      {comments.map((n) => (
-        <div key={n.id}>
-          <p>{n.id}</p>
-          <p>{n.text}</p>
-          <p>{n.date}</p>
+      <Button onClick={toggleComments}>
+        {showComments ? "Hide Comments" : "Show Comments"}
+      </Button>
+
+      {showComments ? (
+        <div>
+          {comments.map((n) => (
+            <div key={n.id}>
+              <p>{n.id}</p>
+              <p>{n.text}</p>
+              <p>{n.date}</p>
+            </div>
+          ))}
+
+          <InputGroup className="p-3">
+            <FormControl
+              placeholder="Enter your message..."
+              aria-label="Enter your message..."
+              aria-describedby="basic-addon1"
+              value={newCommentText}
+              onChange={handleCommentChange}
+              onKeyDown={(e) => e.key === "Enter" && handleSubmitComment()}
+            />
+
+            <Button
+              variant="danger"
+              type="submit"
+              onClick={handleSubmitComment}
+            >
+              Send
+            </Button>
+          </InputGroup>
+          <small>{charLimit - newCommentText.length} character remaining</small>
         </div>
-      ))}
-
-      <InputGroup className="p-3">
-        <FormControl
-          placeholder="Enter your message..."
-          aria-label="Enter your message..."
-          aria-describedby="basic-addon1"
-          value={newCommentText}
-          onChange={handleCommentChange}
-          onKeyDown={(e) => e.key === "Enter" && handleSubmitComment()}
-        />
-
-        <Button variant="danger" type="submit" onClick={handleSubmitComment}>
-          Send
-        </Button>
-      </InputGroup>
-      <small>{charLimit - newCommentText.length} character remaining</small>
+      ) : null}
     </div>
   );
 };
