@@ -9,14 +9,18 @@ const VideoCard = (props) => {
   return (
     <div>
       <Col>
-        <Card className="shadow-sm p-3 mb-5 bg-white rounded d-flex justify-content-between">
+        <Card className="shadow-sm p-3 mb-5 bg-white rounded d-flex justify-content-center">
           <Link
             to={`/browse/${id}`}
             state={video}
             style={{ textDecoration: "none" }}
           >
             <div className="embed-responsive embed-responsive-16by9">
-              <video className="embed-responsive-item" src={url}></video>
+              <video
+                className="embed-responsive-item"
+                src={url}
+                type="video/mp4"
+              ></video>
             </div>
           </Link>
 

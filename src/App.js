@@ -13,7 +13,7 @@ function App() {
         <h1>Video UI</h1>
         <Routes>
           <Route path="/" element={<ViewOverview />} />
-          <Route path="/browse/:gardenid" element={<ViewSingleVideo />} />
+          <Route path="/browse/:id" element={<ViewSingleVideo />} />
           <Route
             path="/profile"
             element={
