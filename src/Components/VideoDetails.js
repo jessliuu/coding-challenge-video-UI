@@ -9,7 +9,7 @@ import { nanoid } from "nanoid";
 const VideoDetails = () => {
   const params = useParams();
   const paramsNumber = parseInt(params.id);
-  const { videos } = useContext(VideoContext);
+  const videos = useContext(VideoContext);
   const [newCommentText, setNewCommentText] = useState("");
   const charLimit = 300;
   const [comments, setComments] = useState([]);

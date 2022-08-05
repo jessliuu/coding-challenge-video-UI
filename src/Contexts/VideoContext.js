@@ -22,7 +22,6 @@ export const VideoContextProvider = (props) => {
       title: "teddy bears at the beach",
       tags: ["teddy bears", "beach"],
     },
-    ,
     {
       id: 549,
       url: "https://www.videvo.net/video/childrens-toys-1/549/",
@@ -44,7 +43,7 @@ export const VideoContextProvider = (props) => {
   ];
 
   return (
-    <VideoContext.Provider value={{ videos }}>
+    <VideoContext.Provider value={videos}>
       {props.children}
     </VideoContext.Provider>
   );
