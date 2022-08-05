@@ -13,16 +13,21 @@ const RelatedVideos = () => {
   const video = videos.filter((video) => {
     return video.id === id;
   });
-
   const videoTags = video.map((v) => v.tags);
+  const videoTagsArr = videoTags[0].map((t) => t);
 
   const relatedVideos = videos.filter((video) => {
-    // console.log(Array.isArray(video.tags));
-    return video.tags.some((n) => videoTags.includes(n));
+    return videoTagsArr.some((n) => video.tags.includes(n));
   });
-  console.log(relatedVideos);
 
-  return <div>RelatedVideos</div>;
+  return (
+    <div>
+      <h2>You might also be interested in the following videos:</h2>
+      {relatedVideos.map((v) => (
+        <div>{v.title}</div>
+      ))}
+    </div>
+  );
 };
 
 export default RelatedVideos;
