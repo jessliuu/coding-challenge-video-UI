@@ -18,14 +18,6 @@ function App() {
   const handleLogout = () => setIsAuthenticated(false);
   const redirectTo = useNavigate();
 
-  // const handleSignIn = () => {
-  //   setShowModal(false);
-  //   console.log("showModal", showModal);
-  //   setIsAuthenticated(true);
-  //   console.log("isAuth", isAuthenticated);
-  //   redirectTo("/browse");
-  // };
-
   return (
     <div className="App">
       <VideoContextProvider>
@@ -33,19 +25,37 @@ function App() {
         {isAuthenticated ? (
           <Button onClick={handleLogout}>Sign Out</Button>
         ) : (
-          <div
-            className="modalPart1"
-            style={{ alignSelf: "center", marginBottom: "4px" }}
-          >
-            <Button variant="outline-dark" onClick={handleLogin}>
-              Log in with Facebook
-            </Button>
-            <Button variant="outline-dark" onClick={handleLogin}>
-              Log in with Google
-            </Button>
-            <Button variant="outline-dark" onClick={handleLogin}>
-              Log in with Apple
-            </Button>
+          <div className="modalBackground">
+            <div className="modalContainer">
+              <h4>Thank you for visiting us!</h4>
+              <div className="login-btn-container">
+                <Button
+                  className="login-btn"
+                  variant="outline-dark"
+                  onClick={handleLogin}
+                >
+                  <i className="fab fa-facebook-f"></i>
+                  <span> Log in with Facebook</span>
+                </Button>
+
+                <Button
+                  className="login-btn"
+                  variant="outline-dark"
+                  onClick={handleLogin}
+                >
+                  <i className="fab fa-google"></i>
+                  <span> Log in with Google</span>
+                </Button>
+                <Button
+                  className="login-btn"
+                  variant="outline-dark"
+                  onClick={handleLogin}
+                >
+                  <i className="fab fa-twitter"></i>
+                  <span> Log in with Twitter</span>
+                </Button>
+              </div>
+            </div>
           </div>
         )}
         <Routes>
